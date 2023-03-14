@@ -68,6 +68,7 @@ def spam():
     System.Title("JJTxStore - Status : Waiting For Spaming")
     system("clear||cls")
     print(Center.Center(rainbowbanner))
+    run()
 
 def deletew():
     print(Center.Center(rainbowbanner))
@@ -81,6 +82,7 @@ def deletew():
     System.Title("JJTxStore - Status : Waiting For Spaming")
     system("clear||cls")
     print(Center.Center(rainbowbanner))
+    run()
 
 def run():
     print(f"""{cy}1 = Spam Webhook {g}2 = Delete Webhook""")
