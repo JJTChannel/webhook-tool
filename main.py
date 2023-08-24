@@ -19,7 +19,7 @@ cy = Fore.CYAN
 b = Fore.BLUE
 w = Fore.WHITE
 
-countries = ["TH","US","AU","SG","UK"]
+countries = ["TH","US","AU","UK"]
 
 def webhookspamming(webhook,name,message):
     try:
