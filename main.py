@@ -19,13 +19,13 @@ cy = Fore.CYAN
 b = Fore.BLUE
 w = Fore.WHITE
 
-countries = ["TH","US","AU","UK"]
 
 def webhookspamming(webhook,name,message):
     try:
-        url = f"http://pubproxy.com/api/proxy?limit=1&format=txt&http=true&country={random.choice(countries)}&type=http&post=true"
+        url = f"http://pubproxy.com/api/proxy?limit=1&format=txt&http=true&type=http&post=true"
         print(f"{b}Getting Proxies From: {r}{url}")
         proxy = requests.get(url).text
+        print(f"{cy}Proxie Granted!: {l}{proxy}")
         session = requests.Session()
         session.proxies = {
             "http": proxy,
@@ -75,7 +75,7 @@ def spam():
     message = input(F"{r}MESS{w}AGE : ")
     name = input(F"{r}USER{w}NAME : ")
     amount = int(input(f"{y}AMO{w}UNT : "))
-    delay = int(input(f"{b}DE{w}lay : "))
+    delay = int(input(f"{b}DE{w}LAY : "))
     am = 0
     print(f"{r}Sta{w}tus : {g}Waiting For API..")
     sleep(1)
