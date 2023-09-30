@@ -20,8 +20,8 @@ b = Fore.BLUE
 w = Fore.WHITE
 
 
-def webhookspamming(webhook,name,message,amount):
-    for i in range(amount):
+def webhookspamming(webhook,name,message):
+    while True:
         try:
             url = f"https://bfstc.xyz/api/proxy.php"
             proxy = requests.get(url).text
@@ -44,17 +44,7 @@ banner = F"""
 ██╔══██╗██║░░░██║██╔══╝░░██╔══╝░░██╔══██║██║░░░░░██║░░██║  ░╚═══██╗░░░██║░░░██║░░██║██╔══██╗██╔══╝░░
 ██████╦╝╚██████╔╝██║░░░░░██║░░░░░██║░░██║███████╗╚█████╔╝  ██████╔╝░░░██║░░░╚█████╔╝██║░░██║███████╗
 ╚═════╝░░╚═════╝░╚═╝░░░░░╚═╝░░░░░╚═╝░░╚═╝╚══════╝░╚════╝░  ╚═════╝░░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝╚══════╝
-                      \_____ https://discord.gg/znSSzHnNQj  Press Enter To Start"""
-bannersucceed = F"""
-                            Spam Succeeded!
-
-██████╗░██╗░░░██╗███████╗███████╗░█████╗░██╗░░░░░░█████╗░  ░██████╗████████╗░█████╗░██████╗░███████╗
-██╔══██╗██║░░░██║██╔════╝██╔════╝██╔══██╗██║░░░░░██╔══██╗  ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝
-██████╦╝██║░░░██║█████╗░░█████╗░░███████║██║░░░░░██║░░██║  ╚█████╗░░░░██║░░░██║░░██║██████╔╝█████╗░░
-██╔══██╗██║░░░██║██╔══╝░░██╔══╝░░██╔══██║██║░░░░░██║░░██║  ░╚═══██╗░░░██║░░░██║░░██║██╔══██╗██╔══╝░░
-██████╦╝╚██████╔╝██║░░░░░██║░░░░░██║░░██║███████╗╚█████╔╝  ██████╔╝░░░██║░░░╚█████╔╝██║░░██║███████╗
-╚═════╝░░╚═════╝░╚═╝░░░░░╚═╝░░░░░╚═╝░░╚═╝╚══════╝░╚════╝░  ╚═════╝░░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝╚══════╝
-                     \_____ https://discord.gg/znSSzHnNQj  Press Enter To Use Again"""
+                      \_____ https://discord.gg/HUhgrny78k  Press Enter To Start"""
 rainbowbanner = F"""{Fore.LIGHTRED_EX}
 ██████╗░██╗░░░██╗███████╗███████╗░█████╗░██╗░░░░░░█████╗░  ░██████╗████████╗░█████╗░██████╗░███████╗
 {Fore.RED}██╔══██╗██║░░░██║██╔════╝██╔════╝██╔══██╗██║░░░░░██╔══██╗  ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝
@@ -70,32 +60,14 @@ def spam():
     webhook = input(F"{g}WEB{w}HOOK : ")
     message = input(F"{r}MESS{w}AGE : ")
     name = input(F"{cy}USER{w}NAME : ")
-    amount = int(input(f"{y}AMO{w}UNT : "))
     thread = int(input(f"{g}THR{w}EAD : "))
-    delay = int(input(f"{b}DE{w}LAY : "))
     am = 0
     print(f"{r}Sta{w}tus : {g}Waiting For API..")
     sleep(1)
     System.Title(f"Buffalo Store - Status : Spamming To {webhook}")
     for i in range(thread):
         print("\n")
-        sleep(delay)
-        threading.Thread(target=webhookspamming(webhook,name,message,amount)).start()
-        am = am + 1
-        print(f"{b}Spamming {r}Round : ({str(am)}/{str(amount)}){g}")
-        print("\n")
-        System.Title(f"Buffalo Store - Status : Spamming To {webhook} - Round : ({str(am)}/{str(amount)})")
-    sleep(1)
-    System.Title(f"Buffalo Store - Status : Succeed Spam To {webhook} - Amount {amount}")
-    print(f"Succeed Spam To {webhook} - Amount {amount}")
-    system("clear||cls")
-    Anime.Fade(Center.Center(bannersucceed), Colors.red_to_blue, Colorate.Vertical, enter=True)
-    System.Title(f"Buffalo Store - Status : Loading...")
-    sleep(1)
-    System.Title("Buffalo Store - Status : Waiting For Spaming")
-    system("clear||cls")
-    print(Center.Center(rainbowbanner))
-    run()
+        threading.Thread(target=webhookspamming(webhook,name,message)).start()
 
 def deletew():
     print(Center.Center(rainbowbanner))
@@ -103,7 +75,7 @@ def deletew():
     delete(webhook)
     print(f"{b}Deleted {webhook}!!")
     sleep(1)
-    Anime.Fade(Center.Center(bannersucceed), Colors.red_to_blue, Colorate.Vertical, enter=True)
+    Anime.Fade(Center.Center(rainbowbanner), Colors.red_to_blue, Colorate.Vertical, enter=True)
     System.Title(f"Buffalo Store - Status : Loading...")
     sleep(1)
     System.Title("Buffalo Store - Status : Waiting For Spaming")
