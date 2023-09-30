@@ -20,22 +20,18 @@ b = Fore.BLUE
 w = Fore.WHITE
 
 
-def webhookspamming(webhook,name,message):
-    try:
-        url = f"http://pubproxy.com/api/proxy?limit=1&format=txt&https=true&type=http&post=true"
-        print(f"{b}Getting Proxies From: {r}{url}")
-        proxy = requests.get(url).text
-        print(f"{cy}Proxie Granted!: {l}{proxy}")
-        session = requests.Session()
-        session.proxies = {
-            "http": proxy,
-            "https": proxy
-        }
-        session.post(webhook,json={"username": name,"content": message})
-        print(f"{l}Status: {g}Succeed")
-    except:
+def webhookspamming(webhook,name,message,amount):
+    for i in range(amount):
         try:
-            post(webhook,json={"username": name,"content": message})
+            url = f"https://bfstc.xyz/api/proxy.php"
+            proxy = requests.get(url).text
+            print(f"{cy}Proxie Granted!: {l}{proxy}")
+            session = requests.Session()
+            session.proxies = {
+                "http": proxy,
+                "https": proxy
+            }
+            session.post(webhook,json={"username": name,"content": message})
             print(f"{l}Status: {g}Succeed")
         except:
             print(f"{l}Status: {r}Error")
@@ -73,17 +69,18 @@ print(Center.Center(rainbowbanner))
 def spam():
     webhook = input(F"{g}WEB{w}HOOK : ")
     message = input(F"{r}MESS{w}AGE : ")
-    name = input(F"{r}USER{w}NAME : ")
+    name = input(F"{cy}USER{w}NAME : ")
     amount = int(input(f"{y}AMO{w}UNT : "))
+    thread = int(input(f"{g}THR{w}EAD : "))
     delay = int(input(f"{b}DE{w}LAY : "))
     am = 0
     print(f"{r}Sta{w}tus : {g}Waiting For API..")
     sleep(1)
     System.Title(f"Buffalo Store - Status : Spamming To {webhook}")
-    for i in range(amount):
+    for i in range(thread):
         print("\n")
         sleep(delay)
-        threading.Thread(target=webhookspamming(webhook,name,message)).start()
+        threading.Thread(target=webhookspamming(webhook,name,message,amount)).start()
         am = am + 1
         print(f"{b}Spamming {r}Round : ({str(am)}/{str(amount)}){g}")
         print("\n")
